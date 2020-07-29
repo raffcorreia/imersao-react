@@ -1,7 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is part of Alura's Imersão React.
 
-## Link to live application;
-[RafFlix](https://imersao-react-nine.vercel.app/)
+## Link to live application
+[RafFlix](https://imersao-react.raffcorreia.vercel.app/)
 
 
 
