@@ -1,32 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 
 function CadastroCategoria() {
-  return (
-    <PageDefault>
-      <h1>Cadastro de Categoria</h1>
+    const [categorias, setCategorias] = useState(['Test']);
+    const [nomeDaCategoria, setNomeDaCategoria] = useState('Filmes');
+    
+    return (
+        <PageDefault>
+            <h1>Cadastro de Categoria: {nomeDaCategoria}</h1>
 
-      <form>
+            <form 
+                onSubmit={function handleSubmit(e) {
+                    e.preventDefault();
+                    setCategorias([
+                        ...categorias,
+                        nomeDaCategoria
+                    ]);
+                }}
+            >
 
-        <label>
-          Nome da Categoria:
-          <input
-            type="text"
-          />
-        </label>
+                <label>
+                    Nome da Categoria:
+                    <input
+                        type="text"
+                        value={nomeDaCategoria}
+                        onChange={function handlerFunction(e) {
+                            setNomeDaCategoria(e.target.value);
+                        }}
+                    />
+                </label>
 
-        <button>
-          Cadastrar
-        </button>
-      </form>
+                <button>
+                    Cadastrar
+                </button>
+            </form>
 
+            <ul>
+                {categorias.map((categoria, i) => {
+                    return (
+                        <li key={`${categoria}${i}`}>
+                            {categoria}
+                        </li>
+                    )
+                })}
+            </ul>
 
-      <Link to="/">
-        Ir para home
-      </Link>
-    </PageDefault>
-  )
+            <Link to="/">
+                Ir para home
+            </Link>
+        </PageDefault>
+    )
 }
 
 export default CadastroCategoria;
