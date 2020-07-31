@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
+import FormField from '../../../components/FormField';
 
 function CadastroCategoria() {
     const valoresInicias = {
         nome: '',
         descricao: '',
-        cor: ''
+        cor: '#0000ff'
     }
 
-    const [categorias, setCategorias] = useState(['Test']);
+    const [categorias, setCategorias] = useState([]);
     const [values, setValues] = useState(valoresInicias);
     
     function setValue(key, value) {
@@ -20,19 +21,12 @@ function CadastroCategoria() {
     }
 
     function handleChange(e) {
+        const { name, value } = e.target;
         setValue(
-            e.target.getAttribute('name'), 
-            e.target.value
+            name, 
+            value
         );
     }
-
-    // function handleChange(e) {
-    //     const { getAttribute, value } = e.target;
-    //     setValue(
-    //         getAttribute('name'), 
-    //         value
-    //     );
-    // }
 
     return (
         <PageDefault>
@@ -49,40 +43,28 @@ function CadastroCategoria() {
                     setValues(valoresInicias);
                 }}
             >
-                <div>
-                    <label>
-                        Nome da Categoria:
-                        <input
-                            type="text"
-                            name="nome"
-                            value={values.nome}
-                            onChange={handleChange}
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Descrição:
-                        <textarea
-                            type="text"
-                            name="descricao"
-                            value={values.descricao}
-                            onChange={handleChange}
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Cor:
-                        <input
-                            type="color"
-                            name="cor"
-                            value={values.cor}
-                            onChange={handleChange}
-                        />
-                    </label>
-                </div>
 
+                <FormField
+                    type="text"
+                    name="nome"
+                    label="Nome de categoria: "
+                    value={values.nome}
+                    onChange={handleChange}
+                />
+                <FormField
+                    type="text"
+                    name="descricao"
+                    label="Descrição: "
+                    value={values.descricao}
+                    onChange={handleChange}
+                />
+                <FormField
+                    type="color"
+                    name="cor"
+                    label="Cor: "
+                    value={values.cor}
+                    onChange={handleChange}
+                />
 
                 <button>
                     Cadastrar
