@@ -2,90 +2,92 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
+import Button from '../../../components/Button';
 
 function CadastroCategoria() {
-    const valoresInicias = {
-        nome: '',
-        descricao: '',
-        cor: '#0000ff'
-    }
+  const valoresInicias = {
+    nome: '',
+    descricao: '',
+    cor: '#0000ff',
+  };
 
-    const [categorias, setCategorias] = useState([]);
-    const [values, setValues] = useState(valoresInicias);
-    
-    function setValue(key, value) {
-        setValues({
-            ...values,
-            [key]: value
-        })
-    }
+  const [categorias, setCategorias] = useState([]);
+  const [values, setValues] = useState(valoresInicias);
 
-    function handleChange(e) {
-        const { name, value } = e.target;
-        setValue(
-            name, 
-            value
-        );
-    }
+  function setValue(key, value) {
+    setValues({
+      ...values,
+      [key]: value,
+    });
+  }
 
-    return (
-        <PageDefault>
-            <h1>Cadastro de Categoria: {values.nome}</h1>
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setValue(
+      name,
+      value,
+    );
+  }
 
-            <form 
-                onSubmit={function handleSubmit(e) {
-                    e.preventDefault();
-                    setCategorias([
-                        ...categorias,
-                        values
-                    ]);
+  return (
+    <PageDefault>
+      <h1>
+        Cadastro de Categoria:
+        {values.nome}
+      </h1>
 
-                    setValues(valoresInicias);
-                }}
-            >
+      <form
+        onSubmit={function handleSubmit(e) {
+          e.preventDefault();
+          setCategorias([
+            ...categorias,
+            values,
+          ]);
 
-                <FormField
-                    type="text"
-                    name="nome"
-                    label="Nome de categoria: "
-                    value={values.nome}
-                    onChange={handleChange}
-                />
-                <FormField
-                    type="text"
-                    name="descricao"
-                    label="Descrição: "
-                    value={values.descricao}
-                    onChange={handleChange}
-                />
-                <FormField
-                    type="color"
-                    name="cor"
-                    label="Cor: "
-                    value={values.cor}
-                    onChange={handleChange}
-                />
+          setValues(valoresInicias);
+        }}
+      >
 
-                <button>
-                    Cadastrar
-                </button>
-            </form>
+        <FormField
+          type="text"
+          name="nome"
+          label="Nome de categoria: "
+          value={values.nome}
+          onChange={handleChange}
+        />
+        <FormField
+          type="text"
+          name="descricao"
+          label="Descrição: "
+          value={values.descricao}
+          onChange={handleChange}
+        />
+        <FormField
+          type="color"
+          name="cor"
+          label="Cor: "
+          value={values.cor}
+          onChange={handleChange}
+        />
 
-            <ul>
-                {categorias.map((categoria, i) => {
-                    return (
-                        <li key={`${categoria}${i}`}>
-                            {categoria.nome}
-                        </li>
-                    )
-                })}
-            </ul>
+        <Button>
+          Cadastrar
+        </Button>
+      </form>
 
-            <Link to="/">
-                Ir para home
-            </Link>
-        </PageDefault>
-    )
+      <ul>
+        {categorias.map((categoria, i) => (
+          <li key={`${categoria}${i}`}>
+            {categoria.nome}
+          </li>
+        ))}
+      </ul>
+
+      <Link to="/">
+        Ir para home
+      </Link>
+    </PageDefault>
+  );
 }
 
 export default CadastroCategoria;
