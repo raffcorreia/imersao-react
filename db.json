@@ -1,0 +1,16 @@
+{
+  "categoria": [
+    {
+      "id": "1",
+      "nome": "Front End",
+      "decricao": "Videos for FE devs.",
+      "cor": "#0000FF"
+    },
+    {
+      "id": "2",
+      "nome": "Back End",
+      "decricao": "videos for backend devs.",
+      "cor": "#00FF00"
+    }
+  ]
+}
