@@ -16,8 +16,10 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "server": "json-server --watch db.json --port 8080",
-    "start": "react-scripts start",
+    "server": "node ./server.js",
+    "server_old": "json-server --watch db.json --port 8080",
+    "start": "npm run server",
+    "start_old": "react-scripts start",
     "local": "npm run server & npm run start",
     "build": "react-scripts build",
     "test": "react-scripts test",
