@@ -32,7 +32,9 @@ function CadastroCategoria() {
   useEffect(() => {
     console.log("this is useEffect()!");
 
-    const URL_TOP = 'http://localhost:8080/categoria/';
+    const URL_TOP = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categoria/'
+      : 'https://rafflix.herokuapp.com/categoria';
     fetch(URL_TOP)
       .then(async (resp) => {
         const resposta = await resp.json();
