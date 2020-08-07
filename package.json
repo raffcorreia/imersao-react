@@ -17,10 +17,8 @@
   },
   "scripts": {
     "server": "node ./server.js",
-    "server_old": "json-server --watch db.json --port 8080",
     "start": "npm run server",
-    "start_old": "react-scripts start",
-    "local": "npm run server & npm run start",
+    "local": "npm run server & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
