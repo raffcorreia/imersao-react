@@ -31,8 +31,8 @@ function CadastroCategoria() {
 
   useEffect(() => {
     const URL_TOP = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categoria/'
-      : 'https://rafflix.herokuapp.com/categoria';
+      ? 'http://localhost:8080/categorias/'
+      : 'https://rafflix.herokuapp.com/categorias';
 
     console.log('URL_TOP => ', URL_TOP);
 
@@ -99,8 +99,8 @@ function CadastroCategoria() {
 
       <ul>
         {categorias.map((categoria) => (
-          <li key={`${categoria.nome}`}>
-            {categoria.nome}
+          <li key={`${categoria.titulo}`}>
+            {categoria.titulo}
           </li>
         ))}
       </ul>
