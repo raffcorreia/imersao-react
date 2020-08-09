@@ -3,35 +3,9 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
-function useForm(valoresInicias) {
-  const [values, setValues] = useState(valoresInicias);
 
-  function setValue(key, value) {
-    setValues({
-      ...values,
-      [key]: value,
-    });
-  }
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setValue(
-      name,
-      value,
-    );
-  }
-
-  function clearForm() {
-    setValues(valoresInicias);
-  }
-
-  return {
-    values,
-    handleChange,
-    clearForm,
-  };
-}
 
 function CadastroCategoria() {
   const valoresInicias = {
