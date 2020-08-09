@@ -5,11 +5,9 @@ import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 
-
-
 function CadastroCategoria() {
   const valoresInicias = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '#0000ff',
   };
@@ -38,7 +36,7 @@ function CadastroCategoria() {
     <PageDefault>
       <h1>
         Cadastro de Categoria:
-        {values.nome}
+        {values.titulo}
       </h1>
 
       <form
@@ -55,9 +53,9 @@ function CadastroCategoria() {
 
         <FormField
           type="text"
-          name="nome"
-          label="Nome de categoria: "
-          value={values.nome}
+          name="titulo"
+          label="Titulo de categoria: "
+          value={values.titulo}
           onChange={handleChange}
         />
         <FormField
